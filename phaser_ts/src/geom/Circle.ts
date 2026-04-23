@@ -57,7 +57,7 @@ export class Circle {
 
     /**
      * The radius of this circle will be zero.
-     * maybe at this point, we could consider this circle as a single point on 2D screen?
+     * maybe after running this function, we could consider this circle as a {@link Point} on 2D screen?
      */
     public setEmpty() {
         this._radius = 0;
