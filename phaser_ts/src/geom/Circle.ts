@@ -155,4 +155,15 @@ export class Circle {
     public setBottom(value: number) {
         this.y = value - this._radius;
     }
+
+    /**
+     * Calculates the area of the circle.
+     */
+    public area() {
+        return (this._radius > 0) ? (Math.PI * (this._radius ** 2)) : 0;
+    }
+
+    public circumference(){
+        return 2 * this._radius * Math.PI;
+    }
 }
