@@ -32,10 +32,15 @@ export class Circle {
     }
 
     /**
-     * Check to see if this circle contains the given (x, y).
+     * Check to see if this circle contains the given (x, y) coordinates.
+     * @returns true if the coordinates are within the circle, otherwise false.
      */
     public contains(x: number, y: number) {
-        return false; // todo : to be implemented later
+        if (this._radius > 0 && x >= this.getLeft() && x <= this.getRight() && y >= this.getTop() && y <= this.getBottom()) {
+            return (((x - this.x) ** 2) + ((y - this.y) ** 2)) <= (this._radius ** 2);
+        } else {
+            return false;
+        }
     }
 
     /**
