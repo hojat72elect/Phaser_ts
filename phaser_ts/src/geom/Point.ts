@@ -47,10 +47,10 @@ export class Point {
     }
 
     /**
-     * Apply `Math.floor()` to all coordinates of the given Point.
+     * Apply `Math.floor()` to all coordinates of this Point.
      */
-    public static floor(point: Point) {
-        return point.setTo(Math.floor(point.x), Math.floor(point.y));
+    public floor() {
+        return this.setTo(Math.floor(this.x), Math.floor(this.y));
     }
 
     /**
