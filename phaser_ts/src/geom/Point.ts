@@ -54,10 +54,10 @@ export class Point {
     }
 
     /**
-     * Calculate the magnitude of the point, which is equivalent to the length of the line from the origin to this point.
+     * Calculate the magnitude of this point, which is equivalent to the length of the line from the origin to this point.
      */
-    public static getMagnitude(point: Point) {
-        return Math.sqrt((point.x ** 2) + (point.y ** 2));
+    public getMagnitude() {
+        return Math.sqrt((this.x ** 2) + (this.y ** 2));
     }
 
     /**
