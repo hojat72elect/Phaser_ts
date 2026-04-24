@@ -40,10 +40,10 @@ export class Point {
     }
 
     /**
-     * checks to see if the 2 provided points are referring to the same place on 2D page.
+     * Checks to see if this point is referring to the same place on 2D page as another point.
      */
-    public static equals(point: Point, other: Point): boolean {
-        return (point.x === other.x && point.y === other.y);
+    public equals(other: Point): boolean {
+        return (this.x === other.x && this.y === other.y);
     }
 
     /**
