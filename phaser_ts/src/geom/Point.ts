@@ -18,6 +18,11 @@ export class Point {
         this.y = y;
     }
 
+    /**
+     * Set the x and y coordinates of the point to the given values.
+     * @param x The x coordinate of this Point. Default 0.
+     * @param y The y coordinate of this Point. Default x.
+     */
     public setTo(x: number = 0, y: number = x) {
         this.x = x;
         this.y = y;
@@ -26,10 +31,10 @@ export class Point {
     }
 
     /**
-     * Clone the given Point.
+     * Makes a clone out of this Point. (the clone and this point will not have any relationships or references to each other)
      */
-    public static clone(source: Point) {
-        return new Point(source.x, source.y);
+    public clone() {
+        return new Point(this.x, this.y);
     }
 
     /**
@@ -47,10 +52,17 @@ export class Point {
     }
 
     /**
-     * Apply `Math.floor()` to all coordinates of this Point.
+     * Apply `Math.floor()` function to all coordinates of this Point.
      */
     public floor() {
         return this.setTo(Math.floor(this.x), Math.floor(this.y));
+    }
+
+    /**
+     * Applies the `Math.ceil()` function to all coordinate of this Point.
+     */
+    public ceil() {
+        return this.setTo(Math.ceil(this.x), Math.ceil(this.y));
     }
 
     /**
@@ -61,10 +73,10 @@ export class Point {
     }
 
     /**
-     * Calculates the square of magnitude of given point.(Can be used for fast magnitude calculation of the point).
+     * Calculates the square of magnitude of this point.(Can be used for fast magnitude calculation of this point).
      */
-    public static getMagnitudeSq(point: Point) {
-        return (point.x ** 2) + (point.y ** 2);
+    public getMagnitudeSq() {
+        return (this.x ** 2) + (this.y ** 2);
     }
 
     /**
@@ -83,4 +95,8 @@ export class Point {
 
         return out;
     }
+
+
+
+
 }
