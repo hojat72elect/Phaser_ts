@@ -8,7 +8,7 @@ var Point = require('./Point');
 
 /**
  * Calculates the vector projection of `pointA` onto the nonzero `pointB`. This is the
- * orthogonal projection of `pointA` onto a straight line paralle to `pointB`.
+ * orthogonal projection of `pointA` onto a straight line parallel to `pointB`.
  *
  * @function Phaser.Geom.Point.ProjectUnit
  * @since 3.0.0

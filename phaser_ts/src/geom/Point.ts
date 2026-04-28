@@ -85,18 +85,56 @@ export class Point {
      * @param pointA - The starting `Point` for the interpolation.
      * @param pointB - The target `Point` for the interpolation.
      * @param t - The amount to interpolate between the 2 points.
-     * @param out - An optional object to store the result.
      *
      * @return {Point} The result of the interpolation.
      */
-    public static interpolate(pointA: Point, pointB: Point, t: number = 0, out: Point = new Point()) {
-        out.x = pointA.x + (pointB.x - pointA.x) * t;
-        out.y = pointA.y + (pointB.y - pointA.y) * t;
+    public static interpolate(pointA: Point, pointB: Point, t: number = 0) {
 
-        return out;
+        return new Point(pointA.x + (pointB.x - pointA.x) * t, pointA.y + (pointB.y - pointA.y) * t);
     }
 
+    /**
+     * Swaps the X and the Y coordinate of this point.
+     */
+    public invert() {
+        return this.setTo(this.y, this.x);
+    }
 
+    /**
+     * Inverts this Point's coordinates.
+     */
+    public negative() {
+        return this.setTo(-this.x, -this.y);
+    }
 
+    /**
+     * Calculates the vector projection of `pointA` onto the nonzero `pointB`.
+     * This is the orthogonal projection of `pointA` onto a straight line parallel to
+     * `pointB`.
+     */
+    public project(pointA: Point, pointB: Point) {
+        const dot = (pointA.x * pointB.x) + (pointA.y * pointB.y);
+        const amt = dot / pointB.getMagnitudeSq();
 
+        if (amt !== 0) {
+            return new Point(amt * pointB.x, amt * pointB.y);
+        }
+        return new Point();
+    }
+
+    /**
+     * Calculates the vector projection of `pointA` onto the nonzero `pointB`. This is
+     * the orthogonal projection of `pointA` onto a straight line parallel to `pointB`.
+     * This specific function assumes `pointB` is a unit vector (magnitude of 1).
+     */
+    public projectUnit(pointA: Point, pointB: Point) {
+        // The dot product of A and B
+        const amt: number = (pointA.x * pointB.x) + (pointA.y * pointB.y);
+
+        if (amt !== 0) {
+            return new Point(amt * pointB.x, amt * pointB.y);
+        }
+
+        return new Point();
+    }
 }
