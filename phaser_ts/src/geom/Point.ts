@@ -137,4 +137,18 @@ export class Point {
 
         return new Point();
     }
+
+    /**
+     * Changes the magnitude (length) of a two-dimensional vector without changing its direction.
+     */
+    public setMagnitude(magnitude: number) {
+        if (this.x !== 0 || this.y !== 0) {
+            const currentMagnitude = this.getMagnitude();
+
+            this.setTo(this.x / currentMagnitude, this.y / currentMagnitude); // This point becomes a unit vector
+        }
+
+        this.setTo(this.x * magnitude, this.y * magnitude);
+        return this;
+    }
 }
