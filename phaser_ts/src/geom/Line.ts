@@ -103,14 +103,14 @@ export class Line {
     /**
      * Get the left position of the Line.
      */
-    public getLeft(){
+    public getLeft() {
         return Math.min(this.x1, this.x2);
     }
 
     /**
      * Set the left position of the Line.
      */
-    public setLeft(value:number){
+    public setLeft(value: number) {
         if (this.x1 <= this.x2) {
             this.x1 = value;
         } else {
@@ -121,18 +121,54 @@ export class Line {
     /**
      * Get the right position of the Line.
      */
-    public getRight(){
+    public getRight() {
         return Math.max(this.x1, this.x2);
     }
 
     /**
      * Set the right position of the Line.
      */
-    public setRight(value:number){
+    public setRight(value: number) {
         if (this.x1 > this.x2) {
             this.x1 = value;
         } else {
             this.x2 = value;
+        }
+    }
+
+    /**
+     * Get the top position of the line.
+     */
+    public getTop() {
+        return Math.min(this.y1, this.y2);
+    }
+
+    /**
+     * Set the top position of the line.
+     */
+    public setTop(value: number) {
+        if (this.y1 <= this.y2) {
+            this.y1 = value;
+        } else {
+            this.y2 = value;
+        }
+    }
+
+    /**
+     * Get the bottom position of the line.
+     */
+    public getBottom() {
+        return Math.max(this.y1, this.y2);
+    }
+
+    /**
+     * Set the bottom position of the line.
+     */
+    public setBottom(value: number) {
+        if (this.y1 > this.y2) {
+            this.y1 = value;
+        } else {
+            this.y2 = value;
         }
     }
 }
