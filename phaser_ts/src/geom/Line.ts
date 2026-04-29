@@ -32,6 +32,13 @@ export class Line {
     }
 
     /**
+     * Calculate the height of the given line.
+     */
+    public height(){
+        return Math.abs(this.y1-this.y2);
+    }
+
+    /**
      * Centers this line on the given coordinates.
      */
     public centerOn(x: number, y: number) {
