@@ -40,4 +40,55 @@ export class Ellipse {
 
         return (normX + normY) < 0.25;
     }
+
+    /**
+     * Sets the x, y, width and height of this ellipse.
+     */
+    public setTo(x: number, y: number, width: number, height: number) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+
+        return this;
+    }
+
+    /**
+     * Sets this Ellipse to be empty with a width and height of zero.
+     */
+    public setEmpty() {
+        this.width = 0;
+        this.height = 0;
+
+        return this;
+    }
+
+    /**
+     * Sets the position of this Ellipse.
+     */
+    public setPosition(x: number, y: number) {
+        this.x = x;
+        this.y = y;
+
+        return this;
+    }
+
+    /**
+     * Sets the size of this Ellipse.
+     */
+    public setSize(width: number, height: number = width) {
+        this.width = width;
+        this.height = height;
+
+        return this;
+    }
+
+    /**
+     * Checks to see if this Ellipse is empty (has a width or height equal to zero).
+     */
+    public isEmpty() {
+        return (this.width <= 0) || (this.height <= 0);
+    }
+
+
 }
