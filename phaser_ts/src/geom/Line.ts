@@ -171,4 +171,37 @@ export class Line {
             this.y2 = value;
         }
     }
+
+    /**
+     * Extends the start and end points of a Line by the given amounts.
+     * The amounts can be positive or negative. Positive points will increase
+     * the length of the line, while negative ones will decrease it.
+     *
+     * If no `right` value is provided it will extend the length of the line equally
+     * in both directions.
+     *
+     * Pass a value of zero to leave the start or end point unchanged.
+     */
+    public extend(left: number, right?: number) {
+        if (!right) right = left;
+
+        const length = this.length();
+
+        if (length === 0) return this;
+
+        const slopX = this.x2 - this.x1;
+        const slopY = this.y2 - this.y1;
+
+        if (left !== 0) {
+            this.x1 = this.x1 - (slopX / length) * left;
+            this.y1 = this.y1 - (slopY / length) * left;
+        }
+
+        if (right !== 0) {
+            this.x2 = this.x2 + (slopX / length) * right;
+            this.y2 = this.y2 + (slopY / length) * right;
+        }
+
+        return this;
+    }
 }
