@@ -1,3 +1,5 @@
+import type {Point} from "./Point.ts";
+
 /**
  * An Ellipse object.
  *
@@ -16,7 +18,6 @@ export class Ellipse {
     public y: number;
     public width: number;
     public height: number;
-
 
     constructor(x: number = 0, y: number = 0, width: number = 0, height: number = 0) {
         this.x = x;
@@ -42,6 +43,13 @@ export class Ellipse {
     }
 
     /**
+     * Check to see if the Ellipse contains the given Point object.
+     */
+    public containsPoint(point: Point) {
+        return this.contains(point.x, point.y);
+    }
+
+    /**
      * Sets the x, y, width and height of this ellipse.
      */
     public setTo(x: number, y: number, width: number, height: number) {
@@ -51,6 +59,13 @@ export class Ellipse {
         this.height = height;
 
         return this;
+    }
+
+    /**
+     * Copies the `x`, `y`, `width` and `height` properties from the `source` Ellipse into a new ellipse object.
+     */
+    public static copyFrom(source: Ellipse) {
+        return new Ellipse(source.x, source.y, source.width, source.height);
     }
 
     /**
@@ -90,5 +105,29 @@ export class Ellipse {
         return (this.width <= 0) || (this.height <= 0);
     }
 
+    /**
+     * Compares the `x`, `y`, `width` and `height` properties of this Ellipse with the other given Ellipse.
+     * Returns `true` if they all match, otherwise returns `false`.
+     */
+    public equals(other: Ellipse) {
+        return (this.x === other.x) && (this.y === other.y) && (this.width === other.width) && (this.height === other.height);
+    }
+
+    /**
+     * Offsets the Ellipse by the values given.
+     */
+    public offset(x: number, y: number) {
+        this.x += x;
+        this.y += y;
+
+        return this;
+    }
+
+    public offsetPoint(point: Point) {
+        this.x += point.x;
+        this.y += point.y;
+
+        return this;
+    }
 
 }
