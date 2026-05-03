@@ -149,4 +149,14 @@ export class Triangle {
         this.y2 -= difference;
         this.y3 -= difference;
     }
+
+    /**
+     * Returns the area of a Triangle.
+     * The area value is always non-negative.
+     */
+    public area(){
+        return Math.abs(((this.x3 - this.x1) * (this.y2 - this.y1) - (this.x2 - this.x1) * (this.y3 - this.y1)) / 2);
+    }
+
+    
 }
